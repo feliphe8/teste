@@ -8,57 +8,100 @@
     }
         
         
-        public function index() {
+        public function home() {
             $this->load->view('home'); } 
             
             
-        public function empresa(){
-            $this->load->view('pag1');
+        public function escola(){
+            $this->load->view('escola');
         }
         
         public function noticias(){
-            $this->load->view('pag2');
+            $this->load->view('noticias');
         }
         
-        public function contato(){
-            $this->load->view('form');
+        public function cadastro(){
+            $this->load->view('cadastro');
         }
         
-         public function ola(){
-            $this->load->view('testeimg'); 
+         public function cursos(){
+            $this->load->view('cursos'); 
         }
         
-        public function test(){
-            $this->load->view('lista');
+        public function login(){
+            $this->load->view('login');
         }
         
+        public function hiper() {
+            $this->load->view('hiper'); } 
+            
+        public function aquarela() {
+            $this->load->view('aquarela'); }
+            
+        public function pintura() {
+            $this->load->view('pintura'); }  
+            
+        public function manga() {
+            $this->load->view('manga'); } 
+            
+        public function sucesso(){
+            $this->load->view('sucess');
+        }
+        
+        public function mostrar(){
+            $this->load->model('UsuarioDAO');
+            $m = $this->UsuarioDAO;
+            $q = $m->queryAll();
+            $data['lista'] = $q;
+            $this->load->view('lista',$data);
+        }
+        
+        
+        public function listarALUNOS(){
+            $this->load->model('UsuarioDAO');
+            $m = $this->UsuarioDAO;
+            $q = $m->listarAlunos();
+            $data['lista'] = $q;
+            $this->load->view('listalunos',$data);
+        }
+        
+         public function listarprofessor(){
+            $this->load->model('UsuarioDAO');
+            $m = $this->UsuarioDAO;
+            $q = $m->listarProfessores();
+            $data['lista'] = $q;
+            $this->load->view('listaprofessor',$data);
+        }
+        
+        
+          public function listarcoordenador(){
+            $this->load->model('UsuarioDAO');
+            $m = $this->UsuarioDAO;
+            $q = $m->listarCoordenadores();
+            $data['lista'] = $q;
+            $this->load->view('listacoordenador',$data);
+        }
         
         
         
         public function doPost(){
-		// controller enxergar o model
-		// APPPATH onde esta o codeIgnitor
-		require_once APPPATH."models/user.php";
-		// 'model' eh o Model, aqui passa com letra minuscula
-		$this->load->model('model');
-		$m = $this->model;
-		// "nome" eh o nome do campo do formulario que estou extraindo a informacao para gravar no banco
-		$m->insert(new Usuario($_POST["nome"],$_POST["email"],$_POST["idade"]));
-		// new Usuario eh a classe Usuario de user.php
+        	require_once APPPATH."models/UsuarioM.php";
+		    $this->load->model('UsuarioDAO');
+		    $m = $this->UsuarioDAO;
+		    $nome = $_POST["nome"];
+		    $sobrenome = $_POST["sobrenome"];
+		    $email = $_POST["email"];
+		    $senha = $_POST["senha"];
+		    $curso = $_POST["curso"];
+		    $cargo = $_POST["cargo"];
+		    $f = new Fabrica();
+		    $cadastro = $f->registrar($cargo, $nome, $sobrenome, $email, $senha, $curso);
+		    $m->insert($cadastro);
+		    redirect("/controller/sucesso");
 	}
         
         
-        public function listar(){
-		require_once APPPATH."models/user.php";
-		$this->load->model('model');
-		$m = $this->model;
-		$usuarios = $m->searchAll();
-		$data['usuarios'] = $usuarios;
-		$this->load->view('lista',$data);
-	//	print_r($usuarios);
-		
-		
-	}
+       
     }
 ?>
 

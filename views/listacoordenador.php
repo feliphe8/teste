@@ -61,11 +61,19 @@
                         </div>
 
                         <div class="inner cover">
-                          <h1 class="cover-heading logo">Studio Dalla Vechia</h1>
-                          <p class="lead">A escola de arte <strong class="logo">Studio Dalla Vechia</strong> oferece 4 tipos de cursos de artes para quem nunca teve contato com qualquer tipo de desenho ou pintura e para todas as idades.</p>
-                          <p class="lead">
-                            <a href="<?php echo base_url(); ?>index.php/controller/cursos" class="btn btn-lg btn-primary">Conheça os cursos</a>
-                          </p>
+                          
+                 
+                                   <?php 
+                                        
+                                                
+                                            foreach($lista as $u){
+                                                echo "<p>"."<strong>Nome:</strong> ".$u->nm_coordenador." <br> <strong>Sobrenome:</strong> ".$u->nm_sobrenome."<br>   <strong>Curso:</strong> ".$u->ds_curso."</p><br>";
+                                            }
+                                     ?>
+                                
+                                
+                                <a class="btn btn-primary" href="https://trabalho-feliphe8.c9.io/index.php/controller/sucesso">Voltar</a>
+                                                            
                         </div>
 
                         <div class="mastfoot">

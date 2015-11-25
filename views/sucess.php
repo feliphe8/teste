@@ -61,11 +61,14 @@
                         </div>
 
                         <div class="inner cover">
-                          <h1 class="cover-heading logo">Studio Dalla Vechia</h1>
-                          <p class="lead">A escola de arte <strong class="logo">Studio Dalla Vechia</strong> oferece 4 tipos de cursos de artes para quem nunca teve contato com qualquer tipo de desenho ou pintura e para todas as idades.</p>
-                          <p class="lead">
-                            <a href="<?php echo base_url(); ?>index.php/controller/cursos" class="btn btn-lg btn-primary">Conheça os cursos</a>
-                          </p>
+                          <h1 class="cover-heading logo">Cadastrado com sucesso!</h1>
+                       
+                            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/controller/mostrar">Listar Usuarios</a>
+                            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/controller/listaralunos">Listar Alunos</a>
+                            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/controller/listarprofessor">Listar Professores</a>
+                            <a class="btn btn-primary" href="<?php echo base_url(); ?>index.php/controller/listarcoordenador">Listar Coordenadores</a>
+                            
+                         
                         </div>
 
                         <div class="mastfoot">
